@@ -1,0 +1,21 @@
+/*
+Theme Name: Project Name
+Author: Elegant Seagulls
+Author URI: http://elegantseagulls.com
+*/
+
+/* Helpers */
+@import "helpers/variables";
+@import "helpers/mixins";
+
+/* Base */
+@import "base/typography";
+@import "base/global";
+
+/* Layout */
+@import "layout/header";
+@import "layout/navigation";
+@import "layout/footer";
+
+/* Sections */
+@import "sections/hero";
