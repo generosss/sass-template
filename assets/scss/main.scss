@@ -1,16 +1,19 @@
 /*
-Project Title: Project Name
-Author: Gene Ross
-Author URI: http://geneross.co
+Theme Name: Credit Karma
+Author: Ueno
+Author URI: http://ueno.co
 */
 
 /* Helpers */
 @import "helpers/variables";
 @import "helpers/mixins";
+@import "helpers/position";
 
 /* Base */
 @import "base/typography";
 @import "base/global";
+
+/* Components */
 
 /* Layout */
 @import "layout/header";

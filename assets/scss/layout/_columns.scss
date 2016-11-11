@@ -1,0 +1,33 @@
+/*
+
+-------------------------------------------------------------
+
+COLUMNS
+
+*/
+
+.col-set {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-left: -$gutter / 2;
+	margin-right: -$gutter / 2;
+
+	.col {
+		@include borderbox();
+		position: relative;
+		padding: 0 $gutter / 2;
+		display: flex;
+		flex-direction: column;
+
+		@for $i from 1 to 12 {
+		  &#{$i} {
+				width: ($i / 12) * 100%;
+
+				@include breakpoint(small) {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

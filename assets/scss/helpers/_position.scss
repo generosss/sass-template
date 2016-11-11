@@ -1,0 +1,50 @@
+/* 
+
+-------------------------------------------------------------
+
+POSITIONS
+
+*/
+
+.position-center {
+	position:absolute;
+	bottom:0px;
+	top:0px;
+	right:0px;
+	left:0px;
+	margin:auto;
+}
+
+.position-top {
+	@extend .position-center;
+	bottom:auto;
+}
+
+.position-top-left {
+	@extend .position-center;
+	right:auto;
+	bottom:auto;
+}
+
+.position-top-right {
+	@extend .position-center;
+	left:auto;
+	bottom:auto;
+}
+
+.position-bottom {
+	@extend .position-center;
+	top:auto;
+}
+
+.position-bottom-right {
+	@extend .position-center;
+	top:auto;
+	left:auto;
+}
+
+.position-bottom-left {
+	@extend .position-center;
+	top:auto;
+	right:auto;
+}

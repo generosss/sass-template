@@ -23,11 +23,72 @@
           transform: scale($size);
 }
 
+@mixin rotate($deg) {
+  -webkit-transform: rotate($deg);
+     -moz-transform: rotate($deg);
+      -ms-transform: rotate($deg);
+          transform: rotate($deg);
+}
+
+@mixin linear-gradient($direction, $color-stops...) {
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+@function legacy-direction($value) {
+  @if is-direction($value) == false {
+    @error "Cannot convert `#{$value}` to legacy syntax because it doesn't seem to be a direction.";
+  }
+
+  $conversion-map: (
+    to top          : bottom,
+    to top right    : bottom left,
+    to right top    : left bottom,
+    to right        : left,
+    to bottom right : top left,
+    to right bottom : left top,
+    to bottom       : top,
+    to bottom left  : top right,
+    to left bottom  : right top,
+    to left         : right,
+    to left top     : right bottom,
+    to top left     : bottom right
+  );
+
+  @if map-has-key($conversion-map, $value) {
+    @return map-get($conversion-map, $value);
+  }
+
+  @return 90deg - $value;
+}
+
 @mixin transform($str) {
   -webkit-transform: $str;
      -moz-transform: $str;
       -ms-transform: $str;
-          transform: $str; 
+          transform: $str;
+}
+
+@mixin transform-origin($str) {
+  -webkit-transform-origin: $str;
+     -moz-transform-origin: $str;
+      -ms-transform-origin: $str;
+          transform-origin: $str;
+}
+
+@mixin shiftY($px) {
+  -webkit-transform: translate3d(0px,$px,0px);
+     -moz-transform: translate3d(0px,$px,0px);
+      -ms-transform: translate3d(0px,$px,0px);
+          transform: translate3d(0px,$px,0px);
+}
+
+@mixin shiftX($px) {
+  -webkit-transform: translate3d($px,0px,0px);
+     -moz-transform: translate3d($px,0px,0px);
+      -ms-transform: translate3d($px,0px,0px);
+          transform: translate3d($px,0px,0px);
 }
 
 @mixin clearfix {
@@ -48,13 +109,13 @@
   }
   @-moz-keyframes $animation-name {
     @content;
-  }  
+  }
   @-ms-keyframes $animation-name {
     @content;
   }
   @-o-keyframes $animation-name {
     @content;
-  }  
+  }
   @keyframes $animation-name {
     @content;
   }
@@ -65,7 +126,7 @@
   -moz-animation: #{$str};
   -ms-animation: #{$str};
   -o-animation: #{$str};
-  animation: #{$str};      
+  animation: #{$str};
 }
 
 @mixin animation-delay($delay) {
@@ -92,6 +153,84 @@
   transition-delay: $delay;
 }
 
+@mixin borderbox() {
+  box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box; 
+}
+
+//
+// PULSE
+//
+
+@-webkit-keyframes pulse {
+  0%   {
+    @include scale(1);
+  }
+  25% {
+    @include scale(0.8);
+  }
+  100% {
+    @include scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%   {
+    @include scale(1);
+  }
+  25% {
+    @include scale(0.8);
+  }
+  100% {
+    @include scale(1);
+  }
+}
+
+//
+// IN / OUT
+//
+
+@-webkit-keyframes in {
+    from {
+      left:0%;
+      width:100%;
+    }
+    to {
+      left:100%;
+      width:100%;
+    }
+}
+
+@keyframes in {
+    from {
+      left:0%;
+      width:100%;
+    }
+    to {
+      left:100%;
+      width:100%;
+    }
+}
+
+@-webkit-keyframes out {
+    0% {
+      width:0%;
+    }
+    100% {
+      width:100%;
+    }
+}
+
+@keyframes out {
+    0% {
+      width:0%;
+    }
+    100% {
+      width:100%;
+    }
+}
+
 
 //
 // BREAK POINTS
@@ -101,14 +240,20 @@
   @if $point == xlarge {
     @media (min-width: 1800px) { @content; }
   }
+  @else if $point == largest {
+    @media (max-width: 1350px) { @content; }
+  }
   @else if $point == large {
     @media (max-width: 1150px) { @content; }
   }
   @else if $point == medium {
-    @media (max-width: 960px) { @content; }
+    @media (max-width: 1023px) { @content; }
   }
   @else if $point == small {
     @media (max-width: 767px)  { @content; }
+  }
+  @else if $point == xsmall {
+    @media (max-width: 400px)  { @content; }
   }
 }
 

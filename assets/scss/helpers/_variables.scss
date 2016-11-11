@@ -1,4 +1,4 @@
-/* 
+/*
 
 -------------------------------------------------------------
 
@@ -6,29 +6,29 @@ VARIABLES
 
 */
 
-// Colors
-$black   : #000000;
-$white   : #ffffff;
+// Container Sizes
+$container  : 1260px;
+$gutter     : 30px;
 
 // Font weights
-$light 	 : 100;
-$regular : 300;
+$thin    : 300;
+$book    : 400;
 $medium  : 500;
 $bold    : 700;
 
-// Primary Font
-$primary-font-family : 'Helvetica', sans-serif;
-$primary-font-weight : $regular;
-$primary-font-size   : 23px;
-$primary-font-color  : #757575;
+// Fonts
+$body-font-family    : "Helvetica";
+$primary-font-size   : 18px;
+$primary-font-color  : #999999;
 $primary-link-color  : #757575;
-$primary-line-height : 36px;
+$primary-line-height : 32px;
 
-// Transitions
-$default-transition-property : all;
-$default-transition-duration : 1s;
-$default-transition-function : false;
-$default-transition-delay    : false;
+// Colors
+$white     : #ffffff;
+$black     : #000000;
 
 // Easing
-$easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+$easeOutQuint : cubic-bezier(0.230, 1.000, 0.320, 1.000);
+$easeOutCubic : cubic-bezier(0.645, 0.045, 0.355, 1.000);
+$easeOutCirc  : cubic-bezier(0.075, 0.820, 0.165, 1.000);
+$easeOutQuart : cubic-bezier(0.165, 0.84, 0.44, 1.000);

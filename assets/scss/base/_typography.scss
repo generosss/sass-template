@@ -1,4 +1,4 @@
-/* 
+/*
 
 -------------------------------------------------------------
 
@@ -6,34 +6,29 @@ TYPOGRAPHY
 
 */
 
-body { 
-	font-family:$primary-font-family; 
-	font-weight:$primary-font-weight;
+* {
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	font-family:$font-regular;
 	font-size:$primary-font-size;
 	color:$primary-font-color;
 	line-height:$primary-line-height;
 }
 
 h1, h2, h3, h4 {
-
-}
-
-h1 {
-	
-}
-
-h2 {
-
-}
-
-h3 {
-
-}
-
-h4 {
-
+	font-style:normal;
+	margin:0px;
+	padding:0px;
+	display:block;
 }
 
 a {
+	@include transition(all 0.5s $easeOutQuint);
 
+	img { border:none; }
 }
+
+a:hover { }
